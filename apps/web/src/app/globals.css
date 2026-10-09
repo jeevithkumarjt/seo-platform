@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply bg-ink-50 text-ink-900 text-sm; }
+.card { @apply bg-white border border-ink-300/40 rounded-lg shadow-sm; }
+.badge { @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold; }

@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+build/
+*.log
+.env
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+seo_dashboard.db
+data/

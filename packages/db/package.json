@@ -1,0 +1,1 @@
+{ "name": "@wip/db", "version": "1.0.0", "main": "init.sql", "description": "TimescaleDB schema for WIP (hypertables: audit_runs, alerts, techstack_snapshots)" }

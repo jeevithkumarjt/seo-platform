@@ -1,0 +1,20 @@
+{
+  "name": "website-intelligence-platform",
+  "private": true,
+  "version": "1.0.0",
+  "description": "B2B SaaS Website Intelligence Platform - INTERNAL USE ONLY. Zero redirects to origin tools.",
+  "packageManager": "npm@10.0.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "db:migrate": "docker compose exec api alembic upgrade head",
+    "start": "docker compose up -d",
+    "stop": "docker compose down"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}

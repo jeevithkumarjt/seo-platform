@@ -1,0 +1,85 @@
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: wip_db
+    restart: unless-stopped
+    mem_limit: 1g
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_USER: wip
+      POSTGRES_PASSWORD: wip
+      POSTGRES_DB: wip
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./packages/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wip -d wip"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: wip_redis
+    restart: unless-stopped
+    mem_limit: 256m
+    ports: ["6379:6379"]
+    volumes: ["redis_data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: { context: ./apps/api }
+    container_name: wip_api
+    restart: unless-stopped
+    mem_limit: 2g
+    ports: ["8000:8000"]
+    env_file: [.env]
+    environment:
+      DATABASE_URL: postgresql://wip:wip@db:5432/wip
+      REDIS_URL: redis://redis:6379/0
+      PYTHONPATH: /app/src
+      DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  worker:
+    build: { context: ./apps/worker }
+    container_name: wip_worker
+    restart: unless-stopped
+    mem_limit: 1g
+    env_file: [.env]
+    environment:
+      DATABASE_URL: postgresql://wip:wip@db:5432/wip
+      REDIS_URL: redis://redis:6379/0
+      API_BASE: http://api:8000
+      PYTHONPATH: /app/src
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      api: { condition: service_started }
+    command: celery -A worker_app worker --loglevel=info --concurrency=2 -B
+
+  web:
+    build: { context: ./apps/web }
+    container_name: wip_web
+    restart: unless-stopped
+    mem_limit: 1g
+    # Host 3000 is owned by the legacy fully-function-dashboard dev server; this platform serves on 3001.
+    ports: ["3001:3000"]
+    env_file: [.env]
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on: [api]
+    command: npm run start
+
+volumes:
+  db_data:
+  redis_data:
