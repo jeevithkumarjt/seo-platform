@@ -9,5 +9,6 @@ __pycache__/
 *.pyc
 .venv/
 seo_dashboard.db
-data/
+data/*
+!data/wip_state.json.br
 out/
