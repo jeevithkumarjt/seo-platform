@@ -10,5 +10,5 @@ __pycache__/
 .venv/
 seo_dashboard.db
 data/*
-!data/wip_state.json.br
+!data/wip_state.json
 out/
