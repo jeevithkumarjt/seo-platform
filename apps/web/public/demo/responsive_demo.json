@@ -1,0 +1,162 @@
+﻿{
+    "categories":  {
+                       "mobile":  {
+                                      "label":  "Mobile",
+                                      "icon":  "📱",
+                                      "devices":  {
+                                                      "iPhone SE 2/3":  {
+                                                                            "status":  "ok",
+                                                                            "dataUrl":  "./shots/iPhone-SE-2_3.png",
+                                                                            "width":  375,
+                                                                            "height":  667,
+                                                                            "isMobile":  true,
+                                                                            "hScroll":  false,
+                                                                            "category":  "mobile"
+                                                                        },
+                                                      "iPhone 14/15/16":  {
+                                                                              "status":  "ok",
+                                                                              "dataUrl":  "./shots/iPhone-14_15_16.png",
+                                                                              "width":  390,
+                                                                              "height":  844,
+                                                                              "isMobile":  true,
+                                                                              "hScroll":  false,
+                                                                              "category":  "mobile"
+                                                                          },
+                                                      "Galaxy S23":  {
+                                                                         "status":  "ok",
+                                                                         "dataUrl":  "./shots/Galaxy-S23.png",
+                                                                         "width":  360,
+                                                                         "height":  780,
+                                                                         "isMobile":  true,
+                                                                         "hScroll":  false,
+                                                                         "category":  "mobile"
+                                                                     },
+                                                      "Pixel 7":  {
+                                                                      "status":  "ok",
+                                                                      "dataUrl":  "./shots/Pixel-7.png",
+                                                                      "width":  412,
+                                                                      "height":  915,
+                                                                      "isMobile":  true,
+                                                                      "hScroll":  false,
+                                                                      "category":  "mobile"
+                                                                  }
+                                                  }
+                                  },
+                       "tablet":  {
+                                      "label":  "Tablet",
+                                      "icon":  "📋",
+                                      "devices":  {
+                                                      "iPad Mini":  {
+                                                                        "status":  "ok",
+                                                                        "dataUrl":  "./shots/iPad-Mini.png",
+                                                                        "width":  768,
+                                                                        "height":  1024,
+                                                                        "isMobile":  false,
+                                                                        "hScroll":  false,
+                                                                        "category":  "tablet"
+                                                                    },
+                                                      "iPad Pro 11":  {
+                                                                          "status":  "ok",
+                                                                          "dataUrl":  "./shots/iPad-Pro-11.png",
+                                                                          "width":  834,
+                                                                          "height":  1112,
+                                                                          "isMobile":  false,
+                                                                          "hScroll":  false,
+                                                                          "category":  "tablet"
+                                                                      }
+                                                  }
+                                  },
+                       "laptop":  {
+                                      "label":  "Laptop",
+                                      "icon":  "💻",
+                                      "devices":  {
+                                                      "MacBook Air 13":  {
+                                                                             "status":  "ok",
+                                                                             "dataUrl":  "./shots/MacBook-Air-13.png",
+                                                                             "width":  1280,
+                                                                             "height":  800,
+                                                                             "isMobile":  false,
+                                                                             "hScroll":  true,
+                                                                             "category":  "laptop"
+                                                                         },
+                                                      "MacBook Air 15":  {
+                                                                             "status":  "ok",
+                                                                             "dataUrl":  "./shots/MacBook-Air-15.png",
+                                                                             "width":  1440,
+                                                                             "height":  900,
+                                                                             "isMobile":  false,
+                                                                             "hScroll":  true,
+                                                                             "category":  "laptop"
+                                                                         }
+                                                  }
+                                  },
+                       "desktop":  {
+                                       "label":  "Desktop",
+                                       "icon":  "🖥",
+                                       "devices":  {
+                                                       "FHD 1080p":  {
+                                                                         "status":  "ok",
+                                                                         "dataUrl":  "./shots/FHD-1080p.png",
+                                                                         "width":  1920,
+                                                                         "height":  1080,
+                                                                         "isMobile":  false,
+                                                                         "hScroll":  true,
+                                                                         "category":  "desktop"
+                                                                     },
+                                                       "QHD 1440p":  {
+                                                                         "status":  "ok",
+                                                                         "dataUrl":  "./shots/QHD-1440p.png",
+                                                                         "width":  2560,
+                                                                         "height":  1440,
+                                                                         "isMobile":  false,
+                                                                         "hScroll":  true,
+                                                                         "category":  "desktop"
+                                                                     }
+                                                   }
+                                   },
+                       "wide":  {
+                                    "label":  "Wide / TV",
+                                    "icon":  "📺",
+                                    "devices":  {
+                                                    "Ultra-wide 3440":  {
+                                                                            "status":  "ok",
+                                                                            "dataUrl":  "./shots/Ultra-wide-3440.png",
+                                                                            "width":  3440,
+                                                                            "height":  1440,
+                                                                            "isMobile":  false,
+                                                                            "hScroll":  false,
+                                                                            "category":  "wide"
+                                                                        }
+                                                }
+                                }
+                   },
+    "url":  "https://tryvium.ai",
+    "allCategories":  [
+                          {
+                              "label":  "Mobile",
+                              "icon":  "📱",
+                              "id":  "mobile"
+                          },
+                          {
+                              "label":  "Tablet",
+                              "icon":  "📋",
+                              "id":  "tablet"
+                          },
+                          {
+                              "label":  "Laptop",
+                              "icon":  "💻",
+                              "id":  "laptop"
+                          },
+                          {
+                              "label":  "Desktop",
+                              "icon":  "🖥",
+                              "id":  "desktop"
+                          },
+                          {
+                              "label":  "Wide / TV",
+                              "icon":  "📺",
+                              "id":  "wide"
+                          }
+                      ],
+    "engine":  "chromium"
+}
